@@ -17,12 +17,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
-import com.uday.testsimpleapp.data.FakeDataSource
 import com.uday.testsimpleapp.data.User
-import com.uday.testsimpleapp.data.UserRepoImpl
-import com.uday.testsimpleapp.domain.UserUseCase
 import com.uday.testsimpleapp.ui.theme.TestSimpleAppTheme
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
