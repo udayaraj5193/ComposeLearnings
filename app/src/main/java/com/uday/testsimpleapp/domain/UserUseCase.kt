@@ -1,9 +1,9 @@
 package com.uday.testsimpleapp.domain
 
 import com.uday.testsimpleapp.data.User
-import com.uday.testsimpleapp.data.UserRepoImpl
+import javax.inject.Inject
 
-class UserUseCase(val userImpl: UserRepoImpl) {
+class UserUseCase @Inject constructor(val userImpl: UserRepoInterface) {
     suspend operator fun invoke(): List<User> {
         return userImpl.getUsers()
     }

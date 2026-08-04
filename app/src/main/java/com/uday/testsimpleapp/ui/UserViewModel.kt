@@ -4,10 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.uday.testsimpleapp.data.User
 import com.uday.testsimpleapp.domain.UserUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class UserViewModel(private val userUseCase: UserUseCase) : ViewModel() {
+@HiltViewModel
+class UserViewModel @Inject constructor(private val userUseCase: UserUseCase) : ViewModel() {
 
     val uiState = MutableStateFlow<UiState>(UiState.Loading)
 

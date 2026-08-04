@@ -1,8 +1,10 @@
 package com.uday.testsimpleapp.data
 
+import javax.inject.Inject
 import kotlin.collections.listOf
 
-class FakeDataSource {
+
+class FakeDataSource @Inject constructor() {
 
     fun getUsers(): List<User> {
         return listOf(
