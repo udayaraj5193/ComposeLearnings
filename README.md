@@ -1,6 +1,6 @@
-# SampleApp - Learning Project
+# android-compose-mvi-clean-arch - Modern Android Reference Project
 
-Welcome to **TestSimpleApp**! This project is designed as a modern Android development showcase, implementing best practices and the latest Jetpack libraries. It serves as a great reference for learners and developers looking to understand how to build a scalable, maintainable Android application.
+Welcome to **android-compose-mvi-clean-arch**! This project is designed as a modern Android development showcase, implementing best practices and the latest Jetpack libraries. It serves as a great reference for learners and developers looking to understand how to build a scalable, maintainable Android application.
 
 ## 🚀 Architecture Overview
 
@@ -65,5 +65,10 @@ The project follows **Clean Architecture** principles and the **MVI (Model-View-
 1. Clone the repository.
 2. Open in **Android Studio**.
 3. Sync Gradle and run the `:app` module.
+
+---
+
+## 🏷️ Keywords
+Android, Kotlin, Jetpack Compose, MVI, Clean Architecture, Dagger Hilt, Dependency Injection, Retrofit, OkHttp, Coil, Coroutines, Flow, StateFlow, Navigation Compose, Material 3, Android Architecture Components, UI/UX, Mobile Development.
 
 Happy Coding! 🚀

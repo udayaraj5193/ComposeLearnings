@@ -22,6 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "TestSimpleApp"
+rootProject.name = "android-compose-mvi-clean-arch"
 include(":app")
  
