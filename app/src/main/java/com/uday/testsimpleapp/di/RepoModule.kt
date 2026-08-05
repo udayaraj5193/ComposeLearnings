@@ -10,7 +10,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class RepoDi {
+abstract class RepoModule {
     @Binds
     @Singleton
     abstract fun bindUserRepo(userRepoImpl: UserRepoImpl): UserRepoInterface

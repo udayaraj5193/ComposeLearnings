@@ -1,5 +1,6 @@
-package com.uday.testsimpleapp.data.retrofit
+package com.uday.testsimpleapp.di
 
+import com.uday.testsimpleapp.data.retrofit.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

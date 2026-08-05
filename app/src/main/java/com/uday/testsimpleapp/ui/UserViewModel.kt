@@ -2,33 +2,46 @@ package com.uday.testsimpleapp.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.uday.testsimpleapp.data.User
 import com.uday.testsimpleapp.domain.UserUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class UserViewModel @Inject constructor(private val userUseCase: UserUseCase) : ViewModel() {
 
-    val uiState = MutableStateFlow<UiState>(UiState.Loading)
+    val uiState = MutableStateFlow<UiState>(UiState())
+    val effects = MutableSharedFlow<Effects>()
 
+    fun handleIntent(intent: UserIntent) {
+        uiState.update { currentState -> currentState.copy(isLoading = true) }
 
-    init {
-        viewModelScope.launch {
-            try {
-                uiState.emit(UiState.Success(userUseCase()))
-            } catch (e: Exception) {
-                uiState.emit(UiState.Error("Error fetching users"))
+        when (intent) {
+            UserIntent.FetchUsers -> viewModelScope.launch {
+                try {
+                    val modified = userUseCase().map {
+                        it.copy(imgUrl = "https://picsum.photos/200")
+                    }
+
+                    uiState.update { currentState ->
+                        currentState.copy(
+                            isLoading = false, users = modified
+                        )
+                    }
+
+                    effects.emit(Effects.ShowToast("Data fetched successfully"))
+
+                } catch (e: Exception) {
+                    uiState.update { currentState ->
+                        currentState.copy(
+                            isLoading = false, error = "Something went wrong"
+                        )
+                    }
+                }
             }
         }
-    }
-
-
-    sealed interface UiState {
-        data class Success(val users: List<User>) : UiState
-        data class Error(val message: String? = null) : UiState
-        object Loading : UiState
     }
 }

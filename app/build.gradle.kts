@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.okhttp.logging)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
+    implementation(libs.coil.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
