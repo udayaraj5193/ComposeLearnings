@@ -1,4 +1,4 @@
-# TestSimpleApp - Learning Project
+# SampleApp - Learning Project
 
 Welcome to **TestSimpleApp**! This project is designed as a modern Android development showcase, implementing best practices and the latest Jetpack libraries. It serves as a great reference for learners and developers looking to understand how to build a scalable, maintainable Android application.
 
